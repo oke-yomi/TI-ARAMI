@@ -1,0 +1,62 @@
+[
+  {
+    "index": 0,
+    "_id": "62e12d1bd29e480f610924d5",
+    "balance": "$2,309.05",
+    "age": 29,
+    "name": "Grimes Perez",
+    "company": "MARKETOID",
+    "email": "grimesperez@marketoid.com",
+    "phone": "+1 (953) 519-2757",
+    "address": "807 President Street, National, American Samoa, 8816",
+    "birthday": "Jun-24"
+  },
+  {
+    "index": 1,
+    "_id": "62e12d1b431016f8ad0ae4df",
+    "balance": "$3,335.34",
+    "age": 21,
+    "name": "Levine Deleon",
+    "company": "TWIGGERY",
+    "email": "levinedeleon@twiggery.com",
+    "phone": "+1 (818) 578-3644",
+    "address": "213 Veranda Place, Gilgo, Virgin Islands, 5594",
+    "birthday": "Dec-31"
+  },
+  {
+    "index": 2,
+    "_id": "62e12d1b4d7e561c5e15abed",
+    "balance": "$2,098.01",
+    "age": 31,
+    "name": "Matilda Robinson",
+    "company": "ENJOLA",
+    "email": "matildarobinson@enjola.com",
+    "phone": "+1 (825) 548-3881",
+    "address": "116 Kensington Street, Brenton, Puerto Rico, 3830",
+    "birthday": "Nov-13"
+  },
+  {
+    "index": 3,
+    "_id": "62e12d1be2e735c5c4aa67ae",
+    "balance": "$1,237.48",
+    "age": 39,
+    "name": "Catalina Leonard",
+    "company": "FRANSCENE",
+    "email": "catalinaleonard@franscene.com",
+    "phone": "+1 (975) 592-3496",
+    "address": "970 Herbert Street, Nelson, Wyoming, 8225",
+    "birthday": "Mar-11"
+  },
+  {
+    "index": 4,
+    "_id": "62e12d1ba1d79fccb0227c51",
+    "balance": "$2,372.10",
+    "age": 33,
+    "name": "Corina Bradley",
+    "company": "PORTALIS",
+    "email": "corinabradley@portalis.com",
+    "phone": "+1 (870) 425-3319",
+    "address": "847 Desmond Court, Esmont, New Jersey, 3860",
+    "birthday": "Jan-22"
+  }
+]
