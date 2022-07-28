@@ -1,16 +1,62 @@
 const fs = require("fs");
 const express = require("express");
+const morgan = require("morgan");
 
 const app = express();
 
+app.use(morgan("dev"));
 app.use(express.json());
+
+app.use((req, res, next) => {
+	req.requestTime = new Date().toISOString();
+	next();
+});
 
 const shop = JSON.parse(
 	fs.readFileSync(`${__dirname}/dev-data/data/sample.json`)
 );
 
+// Users
+const getAllUsers = (req, res) => {
+	res.status(500).json({
+		status: "error",
+		message: "This route is not yet defined",
+	});
+};
+
+const getSingleUser = (req, res) => {
+	res.status(500).json({
+		status: "error",
+		message: "This route is not yet defined",
+	});
+};
+
+const addNewUser = (req, res) => {
+	res.status(500).json({
+		status: "error",
+		message: "This route is not yet defined",
+	});
+};
+
+const updateUser = (req, res) => {
+	res.status(500).json({
+		status: "error",
+		message: "This route is not yet defined",
+	});
+};
+
+const deleteUser = (req, res) => {
+	res.status(500).json({
+		status: "error",
+		message: "This route is not yet defined",
+	});
+};
+
+// shop
 // GET all items in stop
 const getAllItems = (req, res) => {
+	// console.log(req.requestTime)
+
 	res.status(200).json({
 		status: "success",
 		results: shop.length,
@@ -103,12 +149,21 @@ const deleteItem = (req, res) => {
 	});
 };
 
+// Shop route
 app.route("/api/v1/shop").get(getAllItems).post(createNewItem);
 app
 	.route("/api/v1/shop/:id")
 	.get(getSingleItem)
 	.patch(updateItem)
 	.delete(deleteItem);
+
+// user's route
+app.route("/api/v1/users").get(getAllUsers).post(addNewUser);
+app
+	.route("/api/v1/users/:id")
+	.get(getSingleUser)
+	.patch(updateUser)
+	.delete(deleteUser);
 
 const PORT = 5000;
 app.listen(PORT, () => {
