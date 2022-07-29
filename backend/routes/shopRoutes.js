@@ -3,6 +3,8 @@ const shopController = require("./../controllers/shopController");
 
 const router = express.Router();
 
+router.param("id", shopController.checkID);
+
 router
 	.route("/")
 	.get(shopController.getAllItems)

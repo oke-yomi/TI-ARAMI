@@ -4,6 +4,20 @@ const shop = JSON.parse(
 	fs.readFileSync(`${__dirname}/../dev-data/data/sample.json`)
 );
 
+exports.checkID = (req, res, next, val) => {
+  console.log(`Id is ${val}`);
+	const id = req.params.id * 1;
+
+	if (id > shop.length) {
+		return res.status(404).json({
+			status: "failed",
+			message: "Item not found",
+		});
+	}
+
+	next();
+};
+
 exports.getAllItems = (req, res) => {
 	// console.log(req.requestTime)
 
@@ -18,13 +32,6 @@ exports.getAllItems = (req, res) => {
 
 exports.getSingleItem = (req, res) => {
 	const id = req.params.id * 1;
-
-	if (id > shop.length) {
-		return res.status(404).json({
-			status: "failed",
-			message: "Item not found",
-		});
-	}
 
 	const shopItem = shop.find((el) => el._id === id);
 
@@ -62,15 +69,6 @@ exports.createNewItem = (req, res) => {
 };
 
 exports.updateItem = (req, res) => {
-	const id = req.params.id * 1;
-
-	if (id > shop.length) {
-		return res.status(404).json({
-			status: "failed",
-			message: "Item not found",
-		});
-	}
-
 	res.status(200).json({
 		status: "success",
 		data: {
@@ -80,15 +78,6 @@ exports.updateItem = (req, res) => {
 };
 
 exports.deleteItem = (req, res) => {
-	const id = req.params.id * 1;
-
-	if (id > shop.length) {
-		return res.status(404).json({
-			status: "failed",
-			message: "Item not found",
-		});
-	}
-
 	res.status(204).json({
 		status: "success",
 		data: null,
