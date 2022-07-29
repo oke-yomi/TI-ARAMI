@@ -6,6 +6,9 @@ const userRouter = require("./routes/userRoutes");
 
 const app = express();
 
+// TODO: Handle CORS + middleware
+// TODO: connect mongoose and handle mongoDB activities
+
 app.use(morgan("dev"));
 app.use(express.json());
 
