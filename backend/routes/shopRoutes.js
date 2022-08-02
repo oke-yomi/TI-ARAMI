@@ -1,19 +1,20 @@
-const express = require("express");
-const shopController = require("./../controllers/shopController");
+import { Router } from "express";
+import {
+	checkID,
+	getAllItems,
+	checkBody,
+	createNewItem,
+	getSingleItem,
+	updateItem,
+	deleteItem,
+} from "./../controllers/shopController.js";
 
-const router = express.Router();
+const router = Router();
 
-router.param("id", shopController.checkID);
+router.param("id", checkID);
 
-router
-	.route("/")
-	.get(shopController.getAllItems)
-	.post(shopController.createNewItem);
+router.route("/").get(getAllItems).post(checkBody, createNewItem);
 
-router
-	.route("/:id")
-	.get(shopController.getSingleItem)
-	.patch(shopController.updateItem)
-	.delete(shopController.deleteItem);
+router.route("/:id").get(getSingleItem).patch(updateItem).delete(deleteItem);
 
-module.exports = router;
+export default router;
