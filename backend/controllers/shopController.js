@@ -8,33 +8,35 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const shop = JSON.parse(
-	readFileSync(`${__dirname}/../dev-data/data/sample.json`)
+	readFileSync(
+		`${__dirname}/../dev-data/data/sample.json`
+	)
 );
 
-export const checkID = (req, res, next, val) => {
-	console.log(`Id is ${val}`);
-	const id = req.params.id * 1;
+// export const checkID = (req, res, next, val) => {
+// 	console.log(`Id is ${val}`);
+// 	const id = req.params.id * 1;
 
-	if (id > shop.length) {
-		return res.status(404).json({
-			status: "failed",
-			message: "Item not found",
-		});
-	}
+// 	if (id > shop.length) {
+// 		return res.status(404).json({
+// 			status: "failed",
+// 			message: "Item not found",
+// 		});
+// 	}
 
-	next();
-};
+// 	next();
+// };
 
-export const checkBody = (req, res, next) => {
-	if (!req.body.item || !req.body.price) {
-		return res.status(404).json({
-			status: "failed",
-			message: "Missing name or price",
-		});
-	}
+// export const checkBody = (req, res, next) => {
+// 	if (!req.body.item || !req.body.price) {
+// 		return res.status(404).json({
+// 			status: "failed",
+// 			message: "Missing name or price",
+// 		});
+// 	}
 
-	next();
-};
+// 	next();
+// };
 
 export const getAllItems = (req, res) => {
 	res.status(200).json({

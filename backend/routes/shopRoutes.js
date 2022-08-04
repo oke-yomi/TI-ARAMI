@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
-	checkID,
+	// checkID,
 	getAllItems,
-	checkBody,
+	// checkBody,
 	createNewItem,
 	getSingleItem,
 	updateItem,
@@ -11,10 +11,17 @@ import {
 
 const router = Router();
 
-router.param("id", checkID);
+// router.param("id", checkID);
 
-router.route("/").get(getAllItems).post(checkBody, createNewItem);
+router
+	.route("/")
+	.get(getAllItems)
+	.post(createNewItem);
 
-router.route("/:id").get(getSingleItem).patch(updateItem).delete(deleteItem);
+router
+	.route("/:id")
+	.get(getSingleItem)
+	.patch(updateItem)
+	.delete(deleteItem);
 
 export default router;
