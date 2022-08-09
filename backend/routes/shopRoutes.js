@@ -1,8 +1,6 @@
 import { Router } from "express";
 import {
-	// checkID,
 	getAllItems,
-	// checkBody,
 	createNewItem,
 	getSingleItem,
 	updateItem,
@@ -10,8 +8,6 @@ import {
 } from "./../controllers/shopController.js";
 
 const router = Router();
-
-// router.param("id", checkID);
 
 router
 	.route("/")

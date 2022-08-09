@@ -13,31 +13,6 @@ const shop = JSON.parse(
 	)
 );
 
-// export const checkID = (req, res, next, val) => {
-// 	console.log(`Id is ${val}`);
-// 	const id = req.params.id * 1;
-
-// 	if (id > shop.length) {
-// 		return res.status(404).json({
-// 			status: "failed",
-// 			message: "Item not found",
-// 		});
-// 	}
-
-// 	next();
-// };
-
-// export const checkBody = (req, res, next) => {
-// 	if (!req.body.item || !req.body.price) {
-// 		return res.status(404).json({
-// 			status: "failed",
-// 			message: "Missing name or price",
-// 		});
-// 	}
-
-// 	next();
-// };
-
 export const getAllItems = (req, res) => {
 	res.status(200).json({
 		status: "success",

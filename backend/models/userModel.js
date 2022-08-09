@@ -2,9 +2,6 @@ import { Schema, model } from "mongoose";
 
 const userSchema = Schema(
 	{
-		uid: {
-			type: String,
-		},
 		firstName: {
 			type: String,
 			required: [true, "First name is required"],
@@ -24,7 +21,6 @@ const userSchema = Schema(
 		},
 		isAdmin: {
 			type: Boolean,
-			required: true,
 			default: false,
 		},
 	},
