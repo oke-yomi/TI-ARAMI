@@ -2,11 +2,8 @@
 node_modules
 /dist
 
-TODO.md
-
 
 # local env files
-.env
 .env.local
 .env.*.local
 

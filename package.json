@@ -2,16 +2,14 @@
   "name": "ti-arami",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "type": "module",
-  "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server",
-    "frontend": "npm run serve --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
-  },
   "author": "Yomi Oke",
-  "license": "ISC",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "frontend": "npm run serve --prefix frontend",
+    "server": "nodemon backend/server",
+    "start": "node backend/server.js"
+  },
+  "main": "server.js",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
@@ -22,5 +20,7 @@
   "devDependencies": {
     "concurrently": "^7.3.0",
     "nodemon": "^2.0.19"
-  }
+  },
+  "license": "ISC",
+  "type": "module"
 }
