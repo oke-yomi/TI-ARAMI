@@ -1,16 +1,12 @@
 <template>
   <div class="home">
-    <logo />
+    <p>This is the home page</p>
   </div>
 </template>
 
 <script>
-import Logo from "@/assets/images/Logo.vue";
-
 export default {
   name: "HomeView",
-  components: {
-    Logo,
-  },
+  components: {},
 };
 </script>
