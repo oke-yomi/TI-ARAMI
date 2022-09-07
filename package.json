@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "author": "Yomi Oke",
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
     "frontend": "npm run serve --prefix frontend",
@@ -21,6 +22,5 @@
     "concurrently": "^7.3.0",
     "nodemon": "^2.0.19"
   },
-  "license": "ISC",
-  "type": "module"
+  "license": "ISC"
 }
