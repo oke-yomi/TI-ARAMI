@@ -1,31 +1,74 @@
 <template>
-  <header
-    class="fixed top-0 left-0 w-full border-b border-error h-[100px] px-24"
-  >
-    <div class="md:flex justify-between items-center h-full">
+  <header :class="{ 'scrolled-nav': scrolledNav }">
+    <nav>
       <!-- logo -->
-      <div class="">
-        <a href="/">
+      <div class="flex items-center">
+        <router-link
+          :to="{ name: 'Home' }"
+          class="ease-linear duration-500 transition-all"
+        >
           <logo />
-        </a>
+        </router-link>
       </div>
 
-      <!-- Menu Items -->
-      <nav class="w-1/2 flex justify-between items-center font-medium">
-        <ul class="flex justify-between items-center">
-          <li v-for="navItem in navItems" :key="navItem">
-            <a :href="url" class="">
-              {{ navItem }}
-            </a>
-          </li>
-        </ul>
+      <!-- Nav items -->
+      <ul v-show="!mobile" class="flex items-center flex-1 justify-end">
+        <!-- list -->
+        <li v-for="navItem in navItems" :key="navItem.name">
+          <router-link :to="{ name: navItem.link }">
+            {{ navItem.name }}
+          </router-link>
+        </li>
 
-        <div class="flex justify-between items-center whitespace-nowrap pb-3">
-          <a href="" class="mr-6 hover:text-secondary">Login</a>
-          <action-button text="Sign up" type="primary" />
+        <!-- authentication -->
+        <div class="">
+          <router-link :to="{ name: 'Login' }"> Login</router-link>
+          <router-link :to="{ name: 'SignUp' }">
+            <action-button text="Sign up" type="primary" />
+          </router-link>
         </div>
-      </nav>
-    </div>
+      </ul>
+
+      <!-- icon -->
+      <div class="flex items-center absolute top-0 right-6 h-full">
+        <font-awesome-icon
+          v-show="mobile"
+          :icon="['fas', 'fa-bars']"
+          :class="[
+            activeIcon,
+            'cursor-pointer',
+            'text-2xl',
+            'ease-linear',
+            'duration-700',
+            'transition-all',
+          ]"
+          @click="toggleMobileNav"
+        />
+      </div>
+
+      <!-- transition for mobile nav -->
+      <transition name="mobile-nav">
+        <ul
+          v-show="mobileNav"
+          class="flex flex-col fixed w-full max-w-xs h-full bg-yellow-500 top-0 left-0"
+        >
+          <!-- list -->
+          <li v-for="navItem in navItems" :key="navItem.name">
+            <router-link :to="{ name: navItem.link }">
+              {{ navItem.name }}
+            </router-link>
+          </li>
+
+          <!-- authentication -->
+          <div class="">
+            <router-link :to="{ name: 'Login' }"> Login</router-link>
+            <router-link :to="{ name: 'SignUp' }">
+              <action-button text="Sign up" type="primary" />
+            </router-link>
+          </div>
+        </ul>
+      </transition>
+    </nav>
   </header>
 </template>
 
@@ -41,16 +84,87 @@ export default {
   },
   data() {
     return {
-      url: "/",
-      navItems: ["home", "about", "shop"],
+      navItems: [
+        {
+          name: "home",
+          link: "Home",
+        },
+        {
+          name: "about",
+          link: "About",
+        },
+        {
+          name: "shop",
+          link: "Shop",
+        },
+      ],
+      scrolledNav: null,
+      mobile: null,
+      mobileNav: null,
+      windowWidth: null,
     };
+  },
+
+  computed: {
+    activeIcon() {
+      return {
+        "rotate-180": this.mobileNav,
+      };
+    },
+  },
+
+  created() {
+    window.addEventListener("resize", this.checkScreenWidth);
+    this.checkScreenWidth;
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.updateScroll);
+  },
+
+  methods: {
+    toggleMobileNav() {
+      this.mobileNav = !this.mobileNav;
+    },
+    checkScreenWidth() {
+      this.windowWidth = window.innerWidth;
+      if (this.windowWidth <= 768) {
+        this.mobile = true;
+        return;
+      }
+
+      this.mobile = false;
+      this.mobileNav = false;
+      return;
+    },
+    updateScroll() {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 70) {
+        this.scrolledNav = true;
+        return;
+      }
+      this.scrolledNav = false;
+      return;
+    },
   },
 };
 </script>
 
 <style scoped>
-li {
-  @apply capitalize mr-16 last:mr-0 first:text-secondary relative inline-block pb-3;
+header {
+  @apply z-50 w-full fixed top-0 ease-linear duration-500 transition-all border-b border-blue-500 bg-white;
+}
+
+nav {
+  @apply flex flex-row ease-linear duration-500 transition-all w-full mx-auto 2xl:max-h-[1400px] relative;
+}
+
+/* ul {
+  @apply flex items-center flex-1 justify-end;
+} */
+
+/* li {
+  @apply capitalize mr-16 last:mr-0 first:text-secondary relative inline-block pb-3 p-4 list-none no-underline ease-linear duration-500 transition-all;
 }
 
 li:hover {
@@ -59,5 +173,23 @@ li:hover {
 
 li:hover::after {
   @apply absolute bottom-0 content-[''] w-[70%] bg-secondary h-[1.5px] left-[10%] right-[10%] mx-auto;
+} */
+
+/* .active-icon {
+  @apply rotate-180;
+} */
+.scrolled-nav {
+  @apply bg-secondary shadow-3xl;
+}
+.mobile-nav-enter-active,
+.mobile-nav-leave-active {
+  @apply ease-linear duration-1000 transition-all;
+}
+.mobile-nav-enter-from,
+.mobile-nav-leave-to {
+  @apply translate-x-[-250px];
+}
+.mobile-nav-enter-to {
+  @apply translate-x-0;
 }
 </style>

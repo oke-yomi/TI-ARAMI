@@ -17,7 +17,11 @@ module.exports = {
         success: "#137333",
       },
       boxShadow: {
-        blue: "0 0 3px 3px #4285f4",
+        "3xl":
+          "0 4px 6px -1px rgba(0 0 0 0.1), 0 2px 4px -1px rgba(0 0 0 0.06)",
+      },
+      screens: {
+        "2xl": "1400px",
       },
     },
   },
