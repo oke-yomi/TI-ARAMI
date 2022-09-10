@@ -12,17 +12,31 @@
       </div>
 
       <!-- Nav items -->
-      <ul v-show="!mobile" class="flex items-center flex-1 justify-end">
+      <ul
+        v-show="!mobile"
+        class="flex items-center justify-between w-[65%] lg:w-1/2"
+      >
         <!-- list -->
-        <li v-for="navItem in navItems" :key="navItem.name">
-          <router-link :to="{ name: navItem.link }">
-            {{ navItem.name }}
-          </router-link>
-        </li>
+        <div class="flex items-center justify-center">
+          <li
+            v-for="navItem in navItems"
+            :key="navItem.name"
+            class="mr-4 lg:mr-12 last:mr-0 first:pb-3"
+          >
+            <router-link :to="{ name: navItem.link }" class="p-2">
+              {{ navItem.name }}
+            </router-link>
+          </li>
+        </div>
 
         <!-- authentication -->
-        <div class="">
-          <router-link :to="{ name: 'Login' }"> Login</router-link>
+        <div class="pt-2">
+          <router-link
+            :to="{ name: 'Login' }"
+            class="px-4 py-2 mb-3 ease-linear duration-300 transition-all hover:text-secondary inline-block mr-1 lg:mr-4"
+          >
+            Login
+          </router-link>
           <router-link :to="{ name: 'SignUp' }">
             <action-button text="Sign up" type="primary" />
           </router-link>
@@ -50,19 +64,24 @@
       <transition name="mobile-nav">
         <ul
           v-show="mobileNav"
-          class="flex flex-col fixed w-full max-w-xs h-full bg-yellow-500 top-0 left-0"
+          class="flex flex-col fixed w-full h-full bg-white top-0 left-0 mt-16 px-8 py-10"
         >
           <!-- list -->
-          <li v-for="navItem in navItems" :key="navItem.name">
-            <router-link :to="{ name: navItem.link }">
+          <li v-for="navItem in navItems" :key="navItem.name" class="mb-6 pb-3">
+            <router-link :to="{ name: navItem.link }" class="p-4">
               {{ navItem.name }}
             </router-link>
           </li>
 
           <!-- authentication -->
-          <div class="">
-            <router-link :to="{ name: 'Login' }"> Login</router-link>
-            <router-link :to="{ name: 'SignUp' }">
+          <div class="flex flex-col mt-7 w-fit">
+            <router-link
+              :to="{ name: 'Login' }"
+              class="px-4 py-2 mb-3 ease-linear duration-300 transition-all hover:text-secondary inline-block"
+            >
+              Login
+            </router-link>
+            <router-link :to="{ name: 'SignUp' }" class="inline-block">
               <action-button text="Sign up" type="primary" />
             </router-link>
           </div>
@@ -74,7 +93,7 @@
 
 <script>
 import Logo from "@/assets/images/Logo.vue";
-import ActionButton from "@/components/Shared/ActionButton.vue";
+import ActionButton from "@/components/Shared/ActionButton/ActionButton.vue";
 
 export default {
   name: "Navbar",
@@ -139,7 +158,7 @@ export default {
     },
     updateScroll() {
       const scrollPosition = window.scrollY;
-      if (scrollPosition > 70) {
+      if (scrollPosition > 50) {
         this.scrolledNav = true;
         return;
       }
@@ -152,34 +171,28 @@ export default {
 
 <style scoped>
 header {
-  @apply z-50 w-full fixed top-0 ease-linear duration-500 transition-all border-b border-blue-500 bg-white;
+  @apply z-50 w-full fixed top-0 ease-linear duration-500 transition-all border-b bg-white h-16 lg:h-20;
 }
 
 nav {
-  @apply flex flex-row ease-linear duration-500 transition-all w-full mx-auto 2xl:max-h-[1400px] relative;
+  @apply flex flex-row md:justify-between h-full ease-linear duration-500 transition-all w-full items-center px-5  lg:px-24 2xl:max-h-[1400px] relative;
 }
 
-/* ul {
-  @apply flex items-center flex-1 justify-end;
-} */
-
-/* li {
-  @apply capitalize mr-16 last:mr-0 first:text-secondary relative inline-block pb-3 p-4 list-none no-underline ease-linear duration-500 transition-all;
+li {
+  @apply capitalize first:text-secondary relative inline-block  list-none no-underline ease-linear duration-300 transition-all w-fit;
 }
 
 li:hover {
-  @apply text-secondary;
+  @apply text-secondary pb-3;
 }
 
+li:first-child::after,
 li:hover::after {
-  @apply absolute bottom-0 content-[''] w-[70%] bg-secondary h-[1.5px] left-[10%] right-[10%] mx-auto;
-} */
+  @apply absolute bottom-0 content-[''] w-[45%] bg-secondary h-[1.5px] left-[50%] translate-x-[-50%];
+}
 
-/* .active-icon {
-  @apply rotate-180;
-} */
 .scrolled-nav {
-  @apply bg-secondary shadow-3xl;
+  @apply border-b border-secondary shadow-3xl;
 }
 .mobile-nav-enter-active,
 .mobile-nav-leave-active {
