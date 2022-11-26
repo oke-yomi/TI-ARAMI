@@ -40,6 +40,7 @@ export default defineComponent({
   --secondary-color: #12123d; // dark blue
   --black: #000000;
   --white: #ffffff;
+  --dark-gray: #707070;
 }
 
 li {

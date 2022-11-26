@@ -41,13 +41,19 @@ a {
   width: fit-content;
 }
 
-.tertiary {
-  color: #ffffff;
-  background: var(--secondary-color);
-}
-
 .primary {
   color: #ffffff;
   background: var(--primary-color);
+}
+
+.secondary {
+  color: var(--primary-color);
+  background: #ffffff;
+  border: 2px solid var(--primary-color);
+}
+
+.tertiary {
+  color: #ffffff;
+  background: var(--secondary-color);
 }
 </style>
