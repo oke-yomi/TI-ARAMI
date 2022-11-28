@@ -19,7 +19,9 @@
     </div>
 
     <div class="options-wrapper">
-      <div class="options">
+      <!-- <home-about /> -->
+      <home-services />
+      <!-- <div class="options">
         <div class="options-title">
           <h3>about us</h3>
           <span></span>
@@ -35,7 +37,7 @@
           massa in
           <router-link class="link" to="/about">Read More...</router-link>
         </p>
-      </div>
+      </div> -->
 
       <div class="dots dots2">
         <img :src="Dots" alt="" />
@@ -47,11 +49,16 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Dots from "@/assets/svg/dots.svg";
+import HomeAbout from "./home-options/HomeAbout.vue";
+import HomeServices from "./home-options/HomeServices.vue";
 
 export default defineComponent({
   name: "HomeOptions",
   components: {
-    // ActionButton,
+    // eslint-disable-next-line vue/no-unused-components
+    HomeAbout,
+    // eslint-disable-next-line vue/no-unused-components
+    HomeServices,
   },
   data() {
     return {
@@ -171,66 +178,71 @@ section {
     width: 100%;
 
     padding-top: 124px;
+    border: 1px solid red;
 
-    .options {
-      padding: 24px 0;
-      width: 100%;
-      max-width: 451px;
+    // .options {
+    //   padding: 24px 0;
+    //   width: 100%;
+    //   max-width: 451px;
 
-      .options-title {
-        margin-bottom: 12px;
+    //   .options-title {
+    //     margin-bottom: 12px;
 
-        h3 {
-          font-family: "Lavish", serif, Arial;
-          font-weight: 400;
-          font-size: 40px;
-          color: var(--secondary-color);
-        }
+    //     h3 {
+    //       font-family: "Lavish", serif, Arial;
+    //       font-weight: 400;
+    //       font-size: 40px;
+    //       color: var(--secondary-color);
+    //     }
 
-        span {
-          display: inline-block;
-          margin-top: 12px;
-          width: 64px;
-          height: 1.5px;
-          background: var(--primary-color);
-        }
-      }
+    //     span {
+    //       display: inline-block;
+    //       margin-top: 12px;
+    //       width: 64px;
+    //       height: 1.5px;
+    //       background: var(--primary-color);
+    //     }
+    //   }
 
-      .about-text {
-        font-weight: 500;
-        font-size: 16px;
-        color: var(--dark-gray);
+    //   .about-text {
+    //     font-weight: 500;
+    //     font-size: 16px;
+    //     color: var(--dark-gray);
 
-        .link {
-          color: var(--secondary-color);
-        }
-      }
-    }
+    //     .link {
+    //       color: var(--secondary-color);
+    //     }
+    //   }
+    // }
 
-    @media (max-width: 860px) {
-      display: block;
-      padding-top: 48px;
+    @media (max-width: 1200px) {
+      // padding-top: 16px;
 
-      .options {
-        padding: 24px 36px;
-        width: 100%;
-        max-width: 100%;
+      @media (max-width: 860px) {
+        display: block;
+        padding-top: 48px;
 
-        .options-title {
-          h3 {
-            font-size: 36px;
-          }
-        }
+        // .options {
+        //   padding: 24px 36px;
+        //   width: 100%;
+        //   max-width: 100%;
 
-        .about-text {
-          font-weight: 500;
-          font-size: 16px;
-          color: var(--dark-gray);
+        //   .options-title {
+        //     h3 {
+        //       font-size: 36px;
+        //     }
+        //   }
 
-          .link {
-            color: var(--secondary-color);
-          }
-        }
+        //   .about-text {
+        //     font-weight: 500;
+        //     font-size: 16px;
+        //     color: var(--dark-gray);
+
+        //     .link {
+        //       color: var(--secondary-color);
+        //     }
+        //   }
+        // }
       }
     }
   }

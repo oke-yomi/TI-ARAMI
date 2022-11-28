@@ -50,4 +50,8 @@ li {
 a {
   text-decoration: none;
 }
+
+img {
+  object-fit: contain;
+}
 </style>
