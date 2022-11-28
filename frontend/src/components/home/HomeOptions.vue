@@ -20,24 +20,8 @@
 
     <div class="options-wrapper">
       <!-- <home-about /> -->
-      <home-services />
-      <!-- <div class="options">
-        <div class="options-title">
-          <h3>about us</h3>
-          <span></span>
-        </div>
-
-        <p class="about-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. At leo odio
-          vestibulum, quis. Vestibulum turpis mattis consequat in suspendisse
-          eget nibh sed. Vulputate adipiscing mauris rhoncus posuere praesent
-          magna. Ullamcorper dolor enim parturient augue arcu viverra.
-          Suspendisse cursus lacinia a viverra. Ac placerat tempus in vestibulum
-          rutrum semper enim sed magna. Facilisis egestas morbi eget tristique
-          massa in
-          <router-link class="link" to="/about">Read More...</router-link>
-        </p>
-      </div> -->
+      <!-- <home-services /> -->
+      <how-it-works />
 
       <div class="dots dots2">
         <img :src="Dots" alt="" />
@@ -51,6 +35,7 @@ import { defineComponent } from "vue";
 import Dots from "@/assets/svg/dots.svg";
 import HomeAbout from "./home-options/HomeAbout.vue";
 import HomeServices from "./home-options/HomeServices.vue";
+import HowItWorks from "./home-options/HowItWorks.vue";
 
 export default defineComponent({
   name: "HomeOptions",
@@ -59,6 +44,8 @@ export default defineComponent({
     HomeAbout,
     // eslint-disable-next-line vue/no-unused-components
     HomeServices,
+    // eslint-disable-next-line vue/no-unused-components
+    HowItWorks,
   },
   data() {
     return {
@@ -71,16 +58,17 @@ export default defineComponent({
 <style lang="scss" scoped>
 section {
   display: flex;
-  gap: 80px;
+  gap: 60px;
   height: 554px;
   overflow: hidden;
 
   @media (max-width: 1200px) {
     gap: 5px;
+    height: fit-content;
 
     @media (max-width: 860px) {
       flex-direction: column;
-      height: fit-content;
+      // height: fit-content;
       gap: 0px;
 
       border-top: 1px solid #e4e4e4;
@@ -91,7 +79,7 @@ section {
     height: fit-content;
     width: fit-content;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1250px) {
       display: none;
     }
 
@@ -180,69 +168,12 @@ section {
     padding-top: 124px;
     border: 1px solid red;
 
-    // .options {
-    //   padding: 24px 0;
-    //   width: 100%;
-    //   max-width: 451px;
-
-    //   .options-title {
-    //     margin-bottom: 12px;
-
-    //     h3 {
-    //       font-family: "Lavish", serif, Arial;
-    //       font-weight: 400;
-    //       font-size: 40px;
-    //       color: var(--secondary-color);
-    //     }
-
-    //     span {
-    //       display: inline-block;
-    //       margin-top: 12px;
-    //       width: 64px;
-    //       height: 1.5px;
-    //       background: var(--primary-color);
-    //     }
-    //   }
-
-    //   .about-text {
-    //     font-weight: 500;
-    //     font-size: 16px;
-    //     color: var(--dark-gray);
-
-    //     .link {
-    //       color: var(--secondary-color);
-    //     }
-    //   }
-    // }
-
     @media (max-width: 1200px) {
       // padding-top: 16px;
 
       @media (max-width: 860px) {
         display: block;
         padding-top: 48px;
-
-        // .options {
-        //   padding: 24px 36px;
-        //   width: 100%;
-        //   max-width: 100%;
-
-        //   .options-title {
-        //     h3 {
-        //       font-size: 36px;
-        //     }
-        //   }
-
-        //   .about-text {
-        //     font-weight: 500;
-        //     font-size: 16px;
-        //     color: var(--dark-gray);
-
-        //     .link {
-        //       color: var(--secondary-color);
-        //     }
-        //   }
-        // }
       }
     }
   }

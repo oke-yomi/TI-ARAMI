@@ -1,7 +1,7 @@
 <template lang="">
   <div class="options">
     <div class="options-title">
-      <h3>our services</h3>
+      <h3>how it works</h3>
       <span></span>
     </div>
 
@@ -9,32 +9,14 @@
       <li class="services">
         <div class="outer-img">
           <span class="service-img">
-            <img :src="Bespoke" alt="" />
-          </span>
-        </div>
-
-        <h6 class="service-title">bespoke</h6>
-
-        <p class="service-text">
-          placerat tempus in vestibulum rutrum semper enim sed magna.
-        </p>
-      </li>
-
-      <span class="scissors">
-        <img :src="Scissors" alt="" />
-      </span>
-
-      <li class="services">
-        <div class="outer-img">
-          <span class="service-img">
             <img :src="DressIcon" alt="" />
           </span>
         </div>
 
-        <h6 class="service-title">Ready 2 wear</h6>
+        <h6 class="service-title">Choose a Style</h6>
 
         <p class="service-text">
-          placerat tempus in vestibulum rutrum semper enim sed magna.
+          Find your favourite style from any category in our lookbook.
         </p>
       </li>
 
@@ -45,14 +27,32 @@
       <li class="services">
         <div class="outer-img">
           <span class="service-img">
-            <img :src="Beddings" alt="" />
+            <img :src="TapeIcon" alt="" />
           </span>
         </div>
 
-        <h6 class="service-title">beddings</h6>
+        <h6 class="service-title">Send in body size</h6>
 
         <p class="service-text">
-          placerat tempus in vestibulum rutrum semper enim sed magna.
+          Provide a details information of your body size.
+        </p>
+      </li>
+
+      <span class="scissors">
+        <img :src="Scissors" alt="" />
+      </span>
+
+      <li class="services">
+        <div class="outer-img">
+          <span class="service-img">
+            <img :src="BagIcon" alt="" />
+          </span>
+        </div>
+
+        <h6 class="service-title">Get your order</h6>
+
+        <p class="service-text">
+          Get your order after a stipulated time has been given to you.
         </p>
       </li>
     </ul>
@@ -61,20 +61,20 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Beddings from "@/assets/svg/beddings.svg";
-import Bespoke from "@/assets/svg/bespoke.svg";
+import BagIcon from "@/assets/svg/bagIcon.svg";
+import TapeIcon from "@/assets/svg/tapeIcon.svg";
 import DressIcon from "@/assets/svg/dressIcon.svg";
 import Scissors from "@/assets/svg/scissors.svg";
 
 export default defineComponent({
-  name: "HomeServices",
+  name: "HowItWorks",
   components: {
     // ActionButton,
   },
   data() {
     return {
-      Beddings: Beddings,
-      Bespoke: Bespoke,
+      BagIcon: BagIcon,
+      TapeIcon: TapeIcon,
       DressIcon: DressIcon,
       Scissors: Scissors,
     };
