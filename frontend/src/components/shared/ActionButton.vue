@@ -39,6 +39,8 @@ a {
   border: none;
   display: inline-block;
   width: fit-content;
+
+  white-space: nowrap;
 }
 
 .primary {

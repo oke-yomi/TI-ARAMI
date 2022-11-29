@@ -7,21 +7,36 @@
 
       <ul>
         <li class="selections">
-          <p class="selection-text"><span class="num">1.</span> about us</p>
+          <p
+            :class="({ active: isActive }, 'selection-text')"
+            @click="toggleAbout"
+          >
+            <span class="num">1.</span> about us
+          </p>
         </li>
         <li class="selections">
-          <p class="selection-text"><span class="num">2.</span> our services</p>
+          <p
+            :class="({ active: isActive }, 'selection-text')"
+            @click="toggleServices"
+          >
+            <span class="num">2.</span> our services
+          </p>
         </li>
         <li class="selections">
-          <p class="selection-text"><span class="num">3.</span> how it works</p>
+          <p
+            :class="({ active: isActive }, 'selection-text')"
+            @click="toggleHIW"
+          >
+            <span class="num">3.</span> how it works
+          </p>
         </li>
       </ul>
     </div>
 
     <div class="options-wrapper">
-      <!-- <home-about /> -->
-      <!-- <home-services /> -->
-      <how-it-works />
+      <home-about v-show="about" />
+      <home-services v-show="services" />
+      <how-it-works v-show="hiw" />
 
       <div class="dots dots2">
         <img :src="Dots" alt="" />
@@ -40,17 +55,45 @@ import HowItWorks from "./home-options/HowItWorks.vue";
 export default defineComponent({
   name: "HomeOptions",
   components: {
-    // eslint-disable-next-line vue/no-unused-components
     HomeAbout,
-    // eslint-disable-next-line vue/no-unused-components
     HomeServices,
-    // eslint-disable-next-line vue/no-unused-components
     HowItWorks,
   },
   data() {
     return {
-      Dots: Dots,
+      Dots: Dots as string,
+
+      about: true as boolean,
+      services: false as boolean,
+      hiw: false as boolean,
+
+      isActive: true as boolean,
     };
+  },
+  methods: {
+    toggleAbout() {
+      this.about = true;
+      this.services = false;
+      this.hiw = false;
+
+      this.isActive = true;
+    },
+
+    toggleServices() {
+      this.about = false;
+      this.services = true;
+      this.hiw = false;
+
+      this.isActive = true;
+    },
+
+    toggleHIW() {
+      this.about = false;
+      this.services = false;
+      this.hiw = true;
+
+      this.isActive = true;
+    },
   },
 });
 </script>
@@ -73,6 +116,11 @@ section {
 
       border-top: 1px solid #e4e4e4;
     }
+  }
+
+  .active {
+    color: var(--black);
+    font-weight: 600;
   }
 
   .dots {
@@ -166,7 +214,6 @@ section {
     width: 100%;
 
     padding-top: 124px;
-    border: 1px solid red;
 
     @media (max-width: 1200px) {
       // padding-top: 16px;
