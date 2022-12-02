@@ -49,7 +49,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 section {
-  border: 13px solid green;
   height: 982px;
   width: 100%;
   padding: 100px;
@@ -63,12 +62,6 @@ section {
     flex-direction: column;
     justify-content: space-between;
   }
-
-  // img {
-  //   object-fit: cover;
-  //   width: 100%;
-  //   height: 100%;
-  // }
 
   .col-1 {
     h3 {
@@ -135,6 +128,33 @@ section {
         background-color: inherit;
         cursor: pointer;
         border: none;
+      }
+    }
+  }
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+    padding: 60px;
+    height: fit-content;
+
+    .col {
+      gap: 30px;
+    }
+
+    .col-1 {
+      .desc {
+        width: 100%;
+      }
+    }
+
+    .col-2 {
+      .image-2 {
+        display: none;
+      }
+
+      .arrows {
+        width: 60%;
+        margin: 0 auto;
       }
     }
   }
