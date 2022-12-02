@@ -33,7 +33,7 @@
 import { defineComponent } from "vue";
 import ArrowLeft from "@/assets/svg/arrowLeft.svg";
 import ArrowRight from "@/assets/svg/arrowRight.svg";
-import Ecllipse from "@/assets/svg/ecllipse.svg";
+// import Ecllipse from "@/assets/svg/ecllipse.svg";
 
 export default defineComponent({
   name: "LookBook",
@@ -41,7 +41,7 @@ export default defineComponent({
     return {
       ArrowLeft: ArrowLeft as string,
       ArrowRight: ArrowRight as string,
-      Ecllipse: Ecllipse as string,
+      // Ecllipse: Ecllipse as string,
     };
   },
 });
