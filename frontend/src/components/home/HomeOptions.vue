@@ -67,7 +67,7 @@ export default defineComponent({
       services: false as boolean,
       hiw: false as boolean,
 
-      isActive: true as boolean,
+      isActive: false as boolean,
     };
   },
   methods: {
