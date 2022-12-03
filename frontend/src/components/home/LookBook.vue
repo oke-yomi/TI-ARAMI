@@ -155,6 +155,9 @@ section {
       .arrows {
         width: 60%;
         margin: 0 auto;
+
+        justify-content: center;
+        gap: 2rem;
       }
     }
   }
