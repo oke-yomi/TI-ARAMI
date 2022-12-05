@@ -1,9 +1,6 @@
 <template lang="">
   <div class="options">
-    <div class="options-title">
-      <h3>our services</h3>
-      <span></span>
-    </div>
+    <section-heading heading="our services" />
 
     <ul>
       <li class="services">
@@ -61,6 +58,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import SectionHeading from "@/components/shared/SectionHeading.vue";
 import Beddings from "@/assets/svg/beddings.svg";
 import Bespoke from "@/assets/svg/bespoke.svg";
 import DressIcon from "@/assets/svg/dressIcon.svg";
@@ -69,7 +67,7 @@ import Scissors from "@/assets/svg/scissors.svg";
 export default defineComponent({
   name: "HomeServices",
   components: {
-    // ActionButton,
+    SectionHeading,
   },
   data() {
     return {
@@ -87,25 +85,6 @@ export default defineComponent({
   padding: 24px 0;
   width: 100%;
   max-width: fit-content;
-
-  .options-title {
-    margin-bottom: 15px;
-
-    h3 {
-      font-family: "Lavish", serif, Arial;
-      font-weight: 400;
-      font-size: 40px;
-      color: var(--secondary-color);
-    }
-
-    span {
-      display: inline-block;
-      margin-top: 12px;
-      width: 64px;
-      height: 1.5px;
-      background: var(--primary-color);
-    }
-  }
 
   ul {
     display: flex;
@@ -180,12 +159,6 @@ export default defineComponent({
       width: 100%;
       max-width: 100%;
       margin-top: 0px;
-
-      .options-title {
-        h3 {
-          font-size: 36px;
-        }
-      }
 
       ul {
         margin-top: 36px;

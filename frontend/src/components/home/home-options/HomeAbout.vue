@@ -1,9 +1,6 @@
 <template lang="">
   <div class="options">
-    <div class="options-title">
-      <h3>about us</h3>
-      <span></span>
-    </div>
+    <section-heading heading="about us" />
 
     <p class="about-text">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. At leo odio
@@ -19,16 +16,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import SectionHeading from "@/components/shared/SectionHeading.vue";
 
 export default defineComponent({
   name: "HomeAbout",
   components: {
-    // ActionButton,
-  },
-  data() {
-    return {
-      // Dots: Dots,
-    };
+    SectionHeading,
   },
 });
 </script>
@@ -38,25 +31,6 @@ export default defineComponent({
   padding: 24px 0;
   width: 100%;
   max-width: 451px;
-
-  .options-title {
-    margin-bottom: 12px;
-
-    h3 {
-      font-family: "Lavish", serif, Arial;
-      font-weight: 400;
-      font-size: 40px;
-      color: var(--secondary-color);
-    }
-
-    span {
-      display: inline-block;
-      margin-top: 12px;
-      width: 64px;
-      height: 1.5px;
-      background: var(--primary-color);
-    }
-  }
 
   .about-text {
     font-weight: 500;
@@ -72,12 +46,6 @@ export default defineComponent({
     padding: 24px 36px;
     width: 100%;
     max-width: 100%;
-
-    .options-title {
-      h3 {
-        font-size: 36px;
-      }
-    }
 
     .about-text {
       font-weight: 500;

@@ -35,11 +35,6 @@ export default defineComponent({
   components: {
     ActionButton,
   },
-  data() {
-    return {
-      // Img: Img,
-    };
-  },
 });
 </script>
 

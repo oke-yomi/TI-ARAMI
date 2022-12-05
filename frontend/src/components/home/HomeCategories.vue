@@ -50,9 +50,9 @@ export default defineComponent({
   name: "HomeCategories",
   data() {
     return {
-      Dots: Dots as string,
-      ArrowLeft: ArrowLeft as string,
-      ArrowRight: ArrowRight as string,
+      Dots,
+      ArrowLeft,
+      ArrowRight,
 
       categories: [
         {
@@ -97,6 +97,8 @@ section {
   gap: 0px;
   grid-template-columns: 1fr 1fr;
 
+  position: relative;
+
   .col {
     height: 100%;
   }
@@ -115,12 +117,10 @@ section {
   }
 
   .categories-text-wrapper {
-    position: relative;
-
     .dots {
       position: absolute;
       left: 0;
-      bottom: 55px;
+      bottom: 150px;
     }
 
     .categories {
@@ -212,46 +212,56 @@ section {
     }
   }
 
-  @media (max-width: 860px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 1250px) {
     padding: 60px;
-    height: fit-content;
-    gap: 48px;
 
     .categories-text-wrapper {
       .categories {
-        padding: 0 30px;
-
-        h3 {
-          margin-bottom: 20px;
-        }
-
-        ul {
-          border-top: 1px solid var(--primary-color);
-          width: 100%;
-          padding: 28px 10px;
-
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-wrap: wrap;
-
-          gap: 24px;
-
-          .category-item {
-            margin-bottom: 0px;
-          }
-        }
+        padding: 40px;
       }
     }
 
-    .categories-img {
-      .arrows {
-        width: 60%;
-        margin: 32px auto 0;
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+      padding: 60px;
+      height: fit-content;
+      gap: 48px;
 
-        justify-content: center;
-        gap: 2rem;
+      .categories-text-wrapper {
+        .categories {
+          padding: 0 30px;
+
+          h3 {
+            margin-bottom: 20px;
+          }
+
+          ul {
+            border-top: 1px solid var(--primary-color);
+            width: 100%;
+            padding: 28px 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            gap: 24px;
+
+            .category-item {
+              margin-bottom: 0px;
+            }
+          }
+        }
+      }
+
+      .categories-img {
+        .arrows {
+          width: 60%;
+          margin: 32px auto 0;
+
+          justify-content: center;
+          gap: 2rem;
+        }
       }
     }
   }

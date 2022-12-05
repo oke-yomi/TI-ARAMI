@@ -48,7 +48,7 @@ export default defineComponent({
   },
   data() {
     return {
-      Dots: Dots as string,
+      Dots,
 
       about: true as boolean,
       services: false as boolean,
