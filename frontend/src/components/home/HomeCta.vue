@@ -66,6 +66,8 @@ section {
   gap: 176px;
   grid-template-columns: 1fr 1fr;
 
+  position: relative;
+
   .col {
     height: 100%;
   }
