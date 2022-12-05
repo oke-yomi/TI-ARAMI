@@ -227,7 +227,7 @@ section {
         }
 
         ul {
-          border-top: 1px solid #e4e4e4;
+          border-top: 1px solid var(--primary-color);
           width: 100%;
           padding: 28px 10px;
 

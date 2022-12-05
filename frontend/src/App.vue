@@ -54,4 +54,10 @@ a {
 img {
   object-fit: contain;
 }
+
+section {
+  @media (max-width: 860px) {
+    border-bottom: 1px solid #e4e4e4;
+  }
+}
 </style>

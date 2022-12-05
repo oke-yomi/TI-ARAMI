@@ -6,28 +6,15 @@
       </div>
 
       <ul>
-        <li class="selections">
+        <li class="selections" v-for="option in options" :key="option.id">
           <p
-            :class="({ active: isActive }, 'selection-text')"
-            @click="toggleAbout"
+            :class="{
+              'selection-text': true,
+              'active-option': option.id === this.currentOption,
+            }"
+            @click="itemClicked(option.id, option.title)"
           >
-            <span class="num">1.</span> about us
-          </p>
-        </li>
-        <li class="selections">
-          <p
-            :class="({ active: isActive }, 'selection-text')"
-            @click="toggleServices"
-          >
-            <span class="num">2.</span> our services
-          </p>
-        </li>
-        <li class="selections">
-          <p
-            :class="({ active: isActive }, 'selection-text')"
-            @click="toggleHIW"
-          >
-            <span class="num">3.</span> how it works
+            <span class="num">{{ option.id }}.</span> {{ option.title }}
           </p>
         </li>
       </ul>
@@ -68,31 +55,48 @@ export default defineComponent({
       hiw: false as boolean,
 
       isActive: false as boolean,
+
+      options: [
+        {
+          id: 1,
+          title: "about",
+        },
+        {
+          id: 2,
+          title: "services",
+        },
+        {
+          id: 3,
+          title: "hiw",
+        },
+      ],
+
+      currentOption: 1,
+      currentTitle: "about",
     };
   },
   methods: {
-    toggleAbout() {
-      this.about = true;
-      this.services = false;
-      this.hiw = false;
+    itemClicked(id: number, title: string) {
+      this.currentOption = id;
+      this.currentTitle = title;
 
-      this.isActive = true;
-    },
+      if (title === "hiw") {
+        this.about = false;
+        this.services = false;
+        this.hiw = true;
 
-    toggleServices() {
-      this.about = false;
-      this.services = true;
-      this.hiw = false;
+        // just space
+      } else if (title === "services") {
+        this.about = false;
+        this.services = true;
+        this.hiw = false;
 
-      this.isActive = true;
-    },
-
-    toggleHIW() {
-      this.about = false;
-      this.services = false;
-      this.hiw = true;
-
-      this.isActive = true;
+        // just space
+      } else {
+        this.about = true;
+        this.services = false;
+        this.hiw = false;
+      }
     },
   },
 });
@@ -111,16 +115,8 @@ section {
 
     @media (max-width: 860px) {
       flex-direction: column;
-      // height: fit-content;
       gap: 0px;
-
-      border-top: 1px solid #e4e4e4;
     }
-  }
-
-  .active {
-    color: var(--black);
-    font-weight: 600;
   }
 
   .dots {
@@ -169,6 +165,11 @@ section {
             color: var(--black);
             font-weight: 600;
           }
+        }
+
+        .active-option {
+          color: var(--black);
+          font-weight: 600;
         }
       }
     }
