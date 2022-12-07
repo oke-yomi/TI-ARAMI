@@ -1,21 +1,17 @@
 <template>
-  <div>
-    <!-- <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav> -->
-    <layout-view />
-    <!-- <router-view /> -->
-  </div>
+  <component :is="layout">
+    <router-view v-model:layout="layout" />
+  </component>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import LayoutView from "@/components/layout/LayoutView.vue";
 export default defineComponent({
-  components: {
-    LayoutView,
+  data() {
+    return {
+      layout: `div`,
+    };
   },
 });
 </script>
@@ -53,6 +49,12 @@ a {
 
 img {
   object-fit: contain;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 section {

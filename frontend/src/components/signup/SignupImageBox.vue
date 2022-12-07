@@ -1,27 +1,51 @@
 <template lang="">
-  <div class="login-image-wrapper">image box-sizing</div>
+  <div class="signup-image-wrapper">
+    <div class="svg">
+      <img src="@/assets/svg/bgLayout.svg" alt="" />
+    </div>
+
+    <div class="signup-image">
+      <img src="@/assets/img/signupImage.png" alt="" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-// import AuthButton from "@/components/shared/AuthButton.vue";
-// import GoogleAuthBtn from "@/components/shared/GoogleAuthBtn.vue";
-// import BaseInput from "@/components/shared/BaseInput.vue";
-// // icons
-// import Envelope from "@/assets/svg/envelope.svg";
-// import EyeClose from "@/assets/svg/eyeClose.svg";
-// import EyeOpen from "@/assets/svg/eyeOpen.svg";
 
 export default defineComponent({
   name: "SignupImageBox",
-  components: {
-    // AuthButton,
-    // GoogleAuthBtn,
-    // BaseInput,
-  },
 });
 </script>
 
 <style lang="scss" scoped>
-//
+.signup-image-wrapper {
+  background: #eeda89;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .svg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  .signup-image {
+    width: 520px;
+    height: 558px;
+    z-index: 99;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 860px) {
+    display: none;
+  }
+}
 </style>

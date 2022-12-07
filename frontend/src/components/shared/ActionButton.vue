@@ -50,7 +50,7 @@ a {
 
 .secondary {
   color: var(--primary-color);
-  background: #ffffff;
+  background: transparent;
   border: 2px solid var(--primary-color);
 }
 

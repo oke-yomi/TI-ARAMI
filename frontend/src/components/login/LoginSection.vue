@@ -10,7 +10,9 @@
         v-model="email"
         label="email"
       >
-        <img :src="Envelope" alt="icon" />
+        <div class="icon">
+          <img :src="Envelope" alt="icon" />
+        </div>
       </base-input>
 
       <base-input
@@ -20,7 +22,7 @@
         v-model="password"
         label="password"
       >
-        <div class="eye-icon" @click="toggleShow">
+        <div class="eye-icon icon" @click="toggleShow">
           <img v-if="showPassword" :src="EyeOpen" alt="icon" />
           <img v-else :src="EyeClose" alt="icon" />
         </div>
@@ -35,7 +37,7 @@
       <div class="auth-btn">
         <auth-button action="login" />
 
-        <div class="auth-text">
+        <div class="auth-text flex">
           <span class="line"></span>
           <p>or login with</p>
           <span class="line"></span>
@@ -45,10 +47,8 @@
       </div>
 
       <p class="signup-link">
-        Already have an account?
-        <router-link to="forgot-password" class="link signup">
-          Sign up</router-link
-        >
+        Don't have an account?
+        <router-link to="signup" class="link signup"> Sign up</router-link>
       </p>
     </form>
   </div>
@@ -113,15 +113,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.eye-icon {
-  width: 20px;
-  height: 20px;
-
-  display: block;
-}
-
 .login-details-wrapper {
-  padding: 120px 97px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 98px;
+
+  @media (max-width: 860px) {
+    padding: 0 52px;
+  }
 
   h3 {
     font-weight: 700;
@@ -131,6 +131,17 @@ export default defineComponent({
   }
 
   form {
+    .icon {
+      width: 20px;
+      height: 20px;
+
+      display: block;
+    }
+
+    .eye-icon {
+      cursor: pointer;
+    }
+
     .link {
       font-weight: 400;
       font-size: 16px;
@@ -146,10 +157,12 @@ export default defineComponent({
       margin: 60px 0 40px;
       width: 100%;
 
+      @media (max-width: 860px) {
+        margin: 40px 0 20px;
+      }
+
       .auth-text {
-        display: flex;
         justify-content: space-between;
-        align-items: center;
         margin: 24px 0;
 
         .line {
@@ -157,6 +170,16 @@ export default defineComponent({
           width: 172px;
           height: 1px;
           background-color: var(--dark-gray);
+        }
+
+        @media (max-width: 860px) {
+          justify-content: center;
+          gap: 12px;
+          margin: 18px 0;
+
+          .line {
+            width: 24px;
+          }
         }
       }
     }

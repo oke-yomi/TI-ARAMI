@@ -1,8 +1,16 @@
 <template lang="">
-  <div class="login-details-wrapper">
+  <div class="signup-details-wrapper">
     <h3>Sign up</h3>
 
     <form @submit.prevent="signupWithPassword">
+      <base-input
+        type="text"
+        Input="fullname"
+        placeholder="Faith Grant"
+        v-model="fullname"
+        label="full name"
+      />
+
       <base-input
         type="email"
         Input="email"
@@ -10,7 +18,21 @@
         v-model="email"
         label="email"
       >
-        <img :src="Envelope" alt="icon" />
+        <div class="icon">
+          <img :src="Envelope" alt="icon" />
+        </div>
+      </base-input>
+
+      <base-input
+        type="tel"
+        Input="phone"
+        placeholder="08145678923"
+        v-model="phone"
+        label="phone number"
+      >
+        <div class="icon">
+          <img :src="PhoneIcon" alt="icon" />
+        </div>
       </base-input>
 
       <base-input
@@ -20,24 +42,31 @@
         v-model="password"
         label="password"
       >
-        <div class="eye-icon" @click="toggleShow">
+        <div class="eye-icon icon" @click="toggleShow">
           <img v-if="showPassword" :src="EyeOpen" alt="icon" />
           <img v-else :src="EyeClose" alt="icon" />
         </div>
       </base-input>
 
-      <p class="forgot-password">
-        <router-link to="forgot-password" class="link">
-          Forgot Password?
+      <div class="tandc flex">
+        <input
+          type="checkbox"
+          name="checkbox"
+          class="checkbox"
+          v-model="checkbox"
+        />
+        <p>I agree to all</p>
+        <router-link to="terms-and-conditions" class="link">
+          Terms & Conditions
         </router-link>
-      </p>
+      </div>
 
       <div class="auth-btn">
-        <auth-button action="login" />
+        <auth-button action="sign up" />
 
-        <div class="auth-text">
+        <div class="auth-text flex">
           <span class="line"></span>
-          <p>or login with</p>
+          <p>or signup with</p>
           <span class="line"></span>
         </div>
 
@@ -46,9 +75,7 @@
 
       <p class="signup-link">
         Already have an account?
-        <router-link to="forgot-password" class="link signup">
-          Sign up</router-link
-        >
+        <router-link to="login" class="link signup"> Login</router-link>
       </p>
     </form>
   </div>
@@ -63,6 +90,7 @@ import BaseInput from "@/components/shared/BaseInput.vue";
 import Envelope from "@/assets/svg/envelope.svg";
 import EyeClose from "@/assets/svg/eyeClose.svg";
 import EyeOpen from "@/assets/svg/eyeOpen.svg";
+import PhoneIcon from "@/assets/svg/phoneIcon.svg";
 
 export default defineComponent({
   name: "SignupSection",
@@ -73,26 +101,42 @@ export default defineComponent({
   },
   data() {
     return {
+      fullname: "" as string,
       email: "" as string,
+      phone: "" as string,
       password: "" as string,
+      checkbox: false as boolean,
+
+      passwordType: "password" as string,
+      showPassword: false as boolean,
+
+      // icons
       Envelope,
       EyeClose,
       EyeOpen,
-      passwordType: "password" as string,
-      showPassword: false as boolean,
+      PhoneIcon,
     };
   },
   methods: {
     signupWithPassword() {
-      if (!this.email || !this.password) {
-        alert("Email or password required");
+      if (
+        !this.fullname ||
+        !this.email ||
+        !this.phone ||
+        !this.password ||
+        !this.checkbox
+      ) {
+        alert("All fields required");
 
         return;
       } else {
         alert("success");
 
+        this.fullname = "";
         this.email = "";
+        this.phone = "";
         this.password = "";
+        this.checkbox = false;
       }
     },
 
@@ -113,15 +157,22 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.eye-icon {
-  width: 20px;
-  height: 20px;
+.signup-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 48px 98px;
 
-  display: block;
-}
+  overflow-y: scroll;
 
-.login-details-wrapper {
-  padding: 120px 97px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 860px) {
+    padding: 36px 52px;
+  }
 
   h3 {
     font-weight: 700;
@@ -137,19 +188,40 @@ export default defineComponent({
       color: var(--primary-color);
     }
 
-    .forgot-password {
-      text-align: right;
+    .eye-icon {
+      cursor: pointer;
+    }
+
+    .link {
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--primary-color);
+    }
+
+    .tandc {
       margin-top: 8px;
+      justify-content: flex-start;
+
+      .checkbox {
+        height: 24px;
+        width: 24px;
+      }
+
+      p {
+        margin: 0 4px;
+      }
     }
 
     .auth-btn {
       margin: 60px 0 40px;
       width: 100%;
 
+      @media (max-width: 860px) {
+        margin: 40px 0 20px;
+      }
+
       .auth-text {
-        display: flex;
         justify-content: space-between;
-        align-items: center;
         margin: 24px 0;
 
         .line {
@@ -157,6 +229,16 @@ export default defineComponent({
           width: 172px;
           height: 1px;
           background-color: var(--dark-gray);
+        }
+
+        @media (max-width: 860px) {
+          justify-content: center;
+          gap: 12px;
+          margin: 18px 0;
+
+          .line {
+            width: 24px;
+          }
         }
       }
     }
