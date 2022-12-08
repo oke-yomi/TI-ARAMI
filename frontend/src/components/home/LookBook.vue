@@ -63,7 +63,7 @@ section {
 
   .col-1 {
     h3 {
-      font-family: "Lavish", serif, Arial;
+      font-family: var(--Lavish);
       font-style: normal;
       font-weight: 400;
       font-size: 40px;

@@ -108,7 +108,7 @@ export default defineComponent({
     }
 
     h4 {
-      font-family: "Lavish", serif, Arial;
+      font-family: var(--Lavish);
       color: var(--secondary-color);
       line-height: 1.5;
 

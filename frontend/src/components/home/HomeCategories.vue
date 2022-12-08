@@ -131,7 +131,7 @@ section {
       text-align: center;
 
       h3 {
-        font-family: "Lavish", serif, Arial;
+        font-family: var(--Lavish);
         font-weight: 400;
         font-size: 40px;
         line-height: 64px;

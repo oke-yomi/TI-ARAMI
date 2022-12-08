@@ -37,6 +37,8 @@ export default defineComponent({
   --black: #000000;
   --white: #ffffff;
   --dark-gray: #707070;
+
+  --Lavish: "Lavish", serif, Arial;
 }
 
 li {

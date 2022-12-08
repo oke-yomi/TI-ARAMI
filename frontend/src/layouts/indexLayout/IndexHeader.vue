@@ -55,10 +55,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import LogoImg from "../../assets/svg/Logo.vue";
-import ActionButton from "../../components/shared/ActionButton.vue";
-// import LogoImg from "@/assets/svg/Logo.vue";
-// import ActionButton from "@/components/shared/ActionButton.vue";
+// import LogoImg from "../../assets/svg/Logo.vue";
+// import ActionButton from "../../components/shared/ActionButton.vue";
+import LogoImg from "@/assets/svg/Logo.vue";
+import ActionButton from "@/components/shared/ActionButton.vue";
 
 export default defineComponent({
   name: "IndexHeader",

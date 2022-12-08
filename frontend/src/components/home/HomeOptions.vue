@@ -151,7 +151,7 @@ section {
         }
 
         .selection-text {
-          font-family: "Lavish", serif, Arial;
+          font-family: var(--Lavish);
           cursor: pointer;
           text-transform: uppercase;
           font-weight: 400;

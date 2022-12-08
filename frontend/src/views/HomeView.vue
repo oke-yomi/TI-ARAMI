@@ -67,7 +67,7 @@ export default defineComponent({
     font-weight: 400;
     font-size: 40px;
     color: var(--primary-color);
-    font-family: "Lavish", serif, Arial;
+    font-family: var(--Lavish);
   }
 
   .unique-style-text {
