@@ -3,11 +3,12 @@ import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
 import LoginView from "@/views/LoginView.vue";
 import SignupView from "@/views/SignupView.vue";
+import NotFound from "@/views/NotFound.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: HomeView,
     meta: {
       title: "Home | Ti-arami",
@@ -15,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: AboutView,
     meta: {
       title: "About | Ti-arami",
@@ -23,7 +24,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/login",
-    name: "Login",
+    name: "login",
     component: LoginView,
     meta: {
       title: "Login | Ti-arami",
@@ -31,10 +32,18 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/signup",
-    name: "Signup",
+    name: "signup",
     component: SignupView,
     meta: {
       title: "Signup | Ti-arami",
+    },
+  },
+  {
+    path: "/:pathMatch(.*)",
+    name: "not-found",
+    component: NotFound,
+    meta: {
+      title: "Error | Ti-arami",
     },
   },
 ];
