@@ -7,7 +7,7 @@
         type="text"
         Input="fullname"
         placeholder="Faith Grant"
-        v-model="fullname"
+        v-model.trim="fullname"
         label="full name"
       />
 
@@ -15,7 +15,7 @@
         type="email"
         Input="email"
         placeholder="example@gmail.com"
-        v-model="email"
+        v-model.trim="email"
         label="email"
       >
         <div class="icon">
@@ -27,7 +27,7 @@
         type="tel"
         Input="phone"
         placeholder="08145678923"
-        v-model="phone"
+        v-model.trim="phone"
         label="phone number"
       >
         <div class="icon">
@@ -39,7 +39,7 @@
         :type="changePwdType"
         Input="password"
         placeholder="********"
-        v-model="password"
+        v-model.trim="password"
         label="password"
       >
         <div class="eye-icon icon" @click="toggleShow">

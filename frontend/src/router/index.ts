@@ -3,6 +3,7 @@ import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
 import LoginView from "@/views/LoginView.vue";
 import SignupView from "@/views/SignupView.vue";
+import ShopView from "@/views/ShopView.vue";
 import NotFound from "@/views/NotFound.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -36,6 +37,14 @@ const routes: Array<RouteRecordRaw> = [
     component: SignupView,
     meta: {
       title: "Signup | Ti-arami",
+    },
+  },
+  {
+    path: "/shop",
+    name: "shop",
+    component: ShopView,
+    meta: {
+      title: "Shop | Ti-arami",
     },
   },
   {
