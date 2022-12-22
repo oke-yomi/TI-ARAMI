@@ -24,7 +24,10 @@
     <div :class="isVisible ? 'visible' : 'invisible'" class="dropdown-popover">
       <ul class="options">
         <li
-          @click="selectCategory(selection)"
+          @click="
+            selectCategory(selection);
+            filteredCategory(selection);
+          "
           v-for="selection in selections"
           :key="selection"
         >
@@ -41,11 +44,11 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "SelectBox",
   components: {},
+  props: ["filteredCategory"],
   data() {
     return {
       selectedCategory: "all" as string,
-      isVisible: false,
-
+      isVisible: false as boolean,
       selections: [
         "all",
         "skirts",
@@ -85,7 +88,7 @@ export default defineComponent({
     padding: 16px 20px;
 
     justify-content: space-between;
-    background-color: var(--white);
+    background-color: #f1f1f1;
     cursor: pointer;
 
     &.thick-border {
