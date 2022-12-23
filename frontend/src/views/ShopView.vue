@@ -17,7 +17,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Index from "@/layouts/Index.vue";
+// import Index from "@/layouts/Index.vue";
+import AuthIndex from "@/layouts/AuthIndex.vue";
 import axios from "axios";
 
 import ItemCards from "@/components/shop/ItemCards.vue";
@@ -50,7 +51,8 @@ export default defineComponent({
     };
   },
   created() {
-    this.$emit("update:layout", Index);
+    // this.$emit("update:layout", Index);
+    this.$emit("update:layout", AuthIndex);
   },
   methods: {
     filteredCategory(category: string) {
