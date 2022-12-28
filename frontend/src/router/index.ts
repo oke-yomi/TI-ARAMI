@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import AboutView from "@/views/AboutView.vue";
-import LoginView from "@/views/LoginView.vue";
-import SignupView from "@/views/SignupView.vue";
-import ShopView from "@/views/ShopView.vue";
-import NotFound from "@/views/NotFound.vue";
+// import AboutView from "@/views/AboutView.vue";
+// import LoginView from "@/views/LoginView.vue";
+// import SignupView from "@/views/SignupView.vue";
+// import ShopView from "@/views/ShopView.vue";
+// import NotFound from "@/views/NotFound.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -18,7 +18,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/about",
     name: "about",
-    component: AboutView,
+    // component: AboutView,
+    component: () =>
+      import(/* webpackChunkName: "about" */ "@/views/AboutView.vue"),
     meta: {
       title: "About | Ti-arami",
     },
@@ -26,7 +28,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/login",
     name: "login",
-    component: LoginView,
+    // component: LoginView,
+    component: () =>
+      import(/* webpackChunkName: "login" */ "@/views/LoginView.vue"),
     meta: {
       title: "Login | Ti-arami",
     },
@@ -34,7 +38,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/signup",
     name: "signup",
-    component: SignupView,
+    // component: SignupView,
+    component: () =>
+      import(/* webpackChunkName: "signup" */ "@/views/SignupView.vue"),
     meta: {
       title: "Signup | Ti-arami",
     },
@@ -42,7 +48,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/shop",
     name: "shop",
-    component: ShopView,
+    // component: ShopView,
+    component: () =>
+      import(/* webpackChunkName: "shop" */ "@/views/ShopView.vue"),
     meta: {
       title: "Shop | Ti-arami",
     },
@@ -50,7 +58,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/:pathMatch(.*)",
     name: "not-found",
-    component: NotFound,
+    // component: NotFound,
+    component: () =>
+      import(/* webpackChunkName: "not-found" */ "@/views/NotFound.vue"),
     meta: {
       title: "Error | Ti-arami",
     },

@@ -1,23 +1,25 @@
 <template>
   <header>
     <nav>
-      <router-link to="/">
+      <router-link :to="{ name: 'home' }">
         <logo-img />
       </router-link>
 
       <ul v-show="!mobile" class="navigation">
         <li>
-          <router-link class="link" to="/">Home</router-link>
+          <router-link class="link" :to="{ name: 'home' }">Home</router-link>
         </li>
         <li>
-          <router-link class="link" to="/about">About</router-link>
+          <router-link class="link" :to="{ name: 'about' }">About</router-link>
         </li>
         <li>
-          <router-link class="link" to="/shop">shop</router-link>
+          <router-link class="link" :to="{ name: 'shop' }">shop</router-link>
         </li>
 
         <div class="auth-links">
-          <router-link class="link login-link" to="/login">login</router-link>
+          <router-link class="link login-link" :to="{ name: 'login' }"
+            >login</router-link
+          >
           <action-button brand="tertiary" action="Sign up" />
         </div>
       </ul>
@@ -34,17 +36,21 @@
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
           <li>
-            <router-link class="link" to="/">Home</router-link>
+            <router-link class="link" :to="{ name: 'home' }">Home</router-link>
           </li>
           <li>
-            <router-link class="link" to="/about">About</router-link>
+            <router-link class="link" :to="{ name: 'about' }"
+              >About</router-link
+            >
           </li>
           <li>
-            <router-link class="link" to="/shop">shop</router-link>
+            <router-link class="link" :to="{ name: 'shop' }">shop</router-link>
           </li>
 
           <div class="auth-links">
-            <router-link class="link login-link" to="/login">login</router-link>
+            <router-link class="link login-link" :to="{ name: 'login' }"
+              >login</router-link
+            >
             <action-button brand="tertiary" action="Sign up" />
           </div>
         </ul>
@@ -55,8 +61,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-// import LogoImg from "../../assets/svg/Logo.vue";
-// import ActionButton from "../../components/shared/ActionButton.vue";
 import LogoImg from "@/assets/svg/Logo.vue";
 import ActionButton from "@/components/shared/ActionButton.vue";
 

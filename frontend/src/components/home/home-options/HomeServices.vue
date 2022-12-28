@@ -71,10 +71,10 @@ export default defineComponent({
   },
   data() {
     return {
-      Beddings: Beddings,
-      Bespoke: Bespoke,
-      DressIcon: DressIcon,
-      Scissors: Scissors,
+      Beddings,
+      Bespoke,
+      DressIcon,
+      Scissors,
     };
   },
 });
